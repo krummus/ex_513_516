@@ -25,7 +25,7 @@ const Blog = ({blog, handleAddLike, username, handleBlogDelete}) => {
   const showDeleteButton = (username) => {
     const currUser = blog.users.find(user => user.username === username)
     if(currUser !== undefined) {
-      return(<button onClick={handleBlogDelete}>delete</button>)
+      return (<button onClick={handleBlogDelete}>delete</button>)
     }
   }
 
@@ -34,19 +34,18 @@ const Blog = ({blog, handleAddLike, username, handleBlogDelete}) => {
   }
 
   return (
-    <div>
+    <div className="blog">
       <div style={hideWhenVisible}>
         <label>{blog.title} - {blog.author}  </label><button onClick={toggleVisibility}>view</button>
       </div>
-      <div style={showWhenVisible}>
+      <div style={showWhenVisible} data-testid='togglableContent'>
         <label>{blog.title} - {blog.author}</label><button onClick={toggleVisibility}>hide</button><br />
         <label>{blog.url}</label><br />
-        <label>likes</label>: {blog.likes} <button onClick={handleAddLike}>like</button><br />
+        <label>likes</label>: {blog.likes} <button onClick={handleAddLike} id={blog.likes}>like</button><br />
         {blog.users.map(user => <label key={user.id}>{user.name}</label>)}<br />
         {showDeleteButton(username)}
       </div>
     </div>
- 
   )
 }
 

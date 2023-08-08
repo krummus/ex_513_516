@@ -62,7 +62,7 @@ const App = () => {
     }
   }
 
-  const handleLogout = async (event) => {
+  const handleLogout = async () => {
     setErrMessage(`${user.name} has logged out`)
     setErrState(true)
     setTimeout(() => {
@@ -152,7 +152,7 @@ const App = () => {
           user={user}
           handleLogout={handleLogout}/>
         <br />
-        <Togglable buttonLabel='new note'>
+        <Togglable buttonLabel='new blog' id='new-blog-button'>
           <CreateBlog
             title={title}
             author={author}
