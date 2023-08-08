@@ -1,10 +1,10 @@
 import { useState } from 'react'
 
-const Blog = ({blog, handleAddLike, username, handleBlogDelete}) => {
+const Blog = ({ blog, handleAddLike, username, handleBlogDelete }) => {
 
   const [visible, setVisible] = useState(false)
 
-  const hideWhenVisible = { 
+  const hideWhenVisible = {
     display: visible ? 'none' : '',
     paddingTop: 10,
     paddingLeft: 2,
@@ -25,7 +25,7 @@ const Blog = ({blog, handleAddLike, username, handleBlogDelete}) => {
   const showDeleteButton = (username) => {
     const currUser = blog.users.find(user => user.username === username)
     if(currUser !== undefined) {
-      return (<button onClick={handleBlogDelete}>delete</button>)
+      return ( <button onClick={handleBlogDelete}>delete</button> )
     }
   }
 
